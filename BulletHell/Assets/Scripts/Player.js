@@ -7,6 +7,7 @@ var moveDown: KeyCode;
 var screenWidth: float;
 var screenHeight: float;
 var speed: float = 6.0f;
+var playerExplosion: GameObject;
 
 
 function Start(){
@@ -62,8 +63,8 @@ function movement(){
 
 function OnTriggerEnter2D(other: Collider2D){
 	Debug.Log("playerHit1");
-	//Instantiate(enemyExplosion, transform.position, transform.rotation);
-	playerAndGuiManager.
+	Instantiate(playerExplosion, transform.position, transform.rotation);
+	playerAndGuiManager.lives--;
 	Destroy(gameObject);
 /*
 	if(other.gameObject.tag == "bomb"){
