@@ -17,8 +17,9 @@ function SpawnWaves () {
     {
         for ( var i : int= 0; i < hazardCount; i++)
         {
-             var spawnPosition : Vector3= new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-             var spawnRotation : Quaternion= Quaternion.identity;
+             var spawnPosition : Vector3 = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+             //var spawnRotation : Quaternion= Quaternion.identity;
+             var spawnRotation : Quaternion = Quaternion.AngleAxis(-90, Vector3.forward);
             Instantiate (redEnemy1, spawnPosition, spawnRotation);
             yield WaitForSeconds (spawnWait);
         }
