@@ -8,17 +8,22 @@ var screenWidth: float;
 var screenHeight: float;
 var speed: float = 6.0f;
 var playerExplosion: GameObject;
+var immunityTime: float;
+var blinkSpeed: float;
+var blink: boolean = true;
+private var spawnTime: float;
 
 
 function Start(){
 	//rigidbody2D.position.y = Screen.height - 1;
 //	var viewPos : Vector3 = camera.WorldToViewportPoint (rigidbody2D.position);
 //	Debug.Log(viewPos);
-//	Time
+	spawnTime = Time.time;
 }
 
 function Update(){
 	movement();
+	spawnBlink();
 }
 
 function movement(){
@@ -60,12 +65,31 @@ function movement(){
 	
 }
 
+function spawnBlink(){
+	if(Time.time < spawnTime + immunityTime){
+		if(blink){
+			yield WaitForSeconds(blinkSpeed);
+			renderer.GetComponent(SpriteRenderer).color = Color.red;
+			blink = false;
+			}else{
+			yield WaitForSeconds(blinkSpeed);
+			renderer.GetComponent(SpriteRenderer).color = Color.white;
+			blink = true;
+			}
+	} else{
+		renderer.GetComponent(SpriteRenderer).color = Color.white;
+	}
+	yield WaitForSeconds(0.1);
+}
+
 
 function OnTriggerEnter2D(other: Collider2D){
 	//Debug.Log("playerHit1");
+	if(Time.time > spawnTime + immunityTime){
 	Instantiate(playerExplosion, transform.position, transform.rotation);
 	playerAndGuiManager.lives--;
 	Destroy(gameObject);
+	}
 /*
 	if(other.gameObject.tag == "bomb"){
 		Destroy(other.gameObject);

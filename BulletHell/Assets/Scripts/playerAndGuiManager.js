@@ -11,6 +11,7 @@ function Start () {
 }
 
 function Update () {
+//Debug.Log(score);
 
 if(lives < 0){
 	//Death
@@ -34,4 +35,6 @@ if(lives < 0){
  	GUILayout.FlexibleSpace();
  	GUILayout.EndHorizontal();
  	GUILayout.EndArea();
+ 	
+ 	GUI.Box (Rect (Screen.width - 140,Screen.height - 50,140, 50), "Score " + score);
  }
