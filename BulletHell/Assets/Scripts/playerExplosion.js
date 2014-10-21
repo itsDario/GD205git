@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+var player : GameObject;
+var spawnPosition : Vector3;
 var Destroyed: AudioClip;
 
 function Start () {
@@ -11,6 +13,8 @@ function Update () {
 }
 
 function waitThenDestroy(){
-	//yield WaitForSeconds(2);
-	Destroy(gameObject, 2);
+	yield WaitForSeconds(2);
+	
+    Instantiate (player, spawnPosition, Quaternion.identity);
+	Destroy(gameObject);
 }

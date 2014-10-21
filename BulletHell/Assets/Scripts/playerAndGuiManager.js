@@ -14,6 +14,7 @@ function Update () {
 
 if(lives < 0){
 	//Death
+	Application.LoadLevel(2);
 }
 
 }

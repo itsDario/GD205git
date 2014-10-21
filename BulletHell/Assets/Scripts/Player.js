@@ -14,7 +14,7 @@ function Start(){
 	//rigidbody2D.position.y = Screen.height - 1;
 //	var viewPos : Vector3 = camera.WorldToViewportPoint (rigidbody2D.position);
 //	Debug.Log(viewPos);
-	
+//	Time
 }
 
 function Update(){
@@ -62,7 +62,7 @@ function movement(){
 
 
 function OnTriggerEnter2D(other: Collider2D){
-	Debug.Log("playerHit1");
+	//Debug.Log("playerHit1");
 	Instantiate(playerExplosion, transform.position, transform.rotation);
 	playerAndGuiManager.lives--;
 	Destroy(gameObject);
