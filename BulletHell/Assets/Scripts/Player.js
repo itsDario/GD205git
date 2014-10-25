@@ -69,7 +69,7 @@ function spawnBlink(){
 	if(Time.time < spawnTime + immunityTime){
 		if(blink){
 			yield WaitForSeconds(blinkSpeed);
-			renderer.GetComponent(SpriteRenderer).color = Color.red;
+			renderer.GetComponent(SpriteRenderer).color = Color(1,1,1,0.2);
 			blink = false;
 			}else{
 			yield WaitForSeconds(blinkSpeed);

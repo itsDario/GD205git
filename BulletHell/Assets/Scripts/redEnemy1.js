@@ -6,6 +6,8 @@ private var health: int;
 //var iBomb: GameObject;
 var enemyExplosion: GameObject;
 var moveSpeed: float;
+var blinkSpeed: float;
+var hit: boolean;
 
 var shotSound: AudioClip;
 var shot: GameObject;
@@ -15,23 +17,26 @@ private var lastfired : float;
 function Start () {
 //	initPosition = transform.position.x;
 	health = 3;
+	//var script = GetComponent(SteeringAgent); 
+	//script.enabled = true;
 }
 
 function Update () {
+
 
 	if(transform.position.y <= -5){
 		Destroy(gameObject);
 	}
 	
 	shoot();
+	color();
 	
 	transform.position.y -= moveSpeed * Time.deltaTime;
+	
 	
 	//Debug.Log(SteeringAgent.AgentList);
 	//transform.position.x = initPosition + Mathf.Sin(Time.time) * moveDist;
 	// Shoot Sometimes
-	/*
-	*/
 }
 
 function shoot(){	// Shooting
@@ -54,10 +59,20 @@ function shoot(){	// Shooting
 	Instantiate(shot, pos, Quaternion.identity);
 	*/
 }
+function color(){
+if(hit){
+	renderer.GetComponent(SpriteRenderer).color = Color.white;
+	yield WaitForSeconds(blinkSpeed);
+	hit = false;
+	}else{
+	renderer.GetComponent(SpriteRenderer).color = Color.yellow;
+	}
+}
 
 function OnTriggerEnter2D (other: Collider2D){
 	if(other.gameObject.tag == "Shot"){
 		//Script_gameManager.score += 10;
+		hit = true;
 		health--;
 		if(health <= 0){
 			Instantiate(enemyExplosion, transform.position, transform.rotation);

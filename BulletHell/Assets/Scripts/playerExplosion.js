@@ -5,11 +5,12 @@ var spawnPosition : Vector3;
 var Destroyed: AudioClip;
 
 function Start () {
+	Debug.Log("Playerexplostion");
 	audio.PlayOneShot(Destroyed);
+	waitThenDestroy();
 }
 
 function Update () {
-	waitThenDestroy();
 }
 
 function waitThenDestroy(){

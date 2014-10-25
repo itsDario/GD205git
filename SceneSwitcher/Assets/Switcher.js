@@ -1,4 +1,4 @@
-﻿#pragma strict
+#pragma strict
 
 function OnGUI () {
     // Make a background box
@@ -14,6 +14,10 @@ function OnGUI () {
     }
     
     if (GUI.Button (Rect (Screen.width/2-40,Screen.height/2-20,80,20), "level 3")) {
+        Application.LoadLevel (2);
+    }
+    
+    if (GUI.Button (Rect (Screen.width/2-40,Screen.height/2+10,80,20), "next leve")) {
         Application.LoadLevel (2);
     }
 }

@@ -12,4 +12,5 @@ function Update () {
 	if(gameObject.transform.position.y < -5){
 		Destroy(gameObject);
 	}
+	//renderer.GetComponent(SpriteRenderer).color = Color.yellow;
 }
