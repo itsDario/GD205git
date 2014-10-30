@@ -7,8 +7,10 @@ function Start () {
 }
 
 function Update () {
-	transform.Rotate (Vector3.forward * -90 * Time.deltaTime);
-	rigidbody2D.velocity.y = -speed;
+	//transform.Rotate (Vector3.forward * -90 * Time.deltaTime);
+	//rigidbody2D.velocity.y = -speed;
+	rigidbody2D.velocity = transform.right * speed;
+	Debug.Log(rigidbody2D.velocity);
 	if(gameObject.transform.position.y < -5){
 		Destroy(gameObject);
 	}

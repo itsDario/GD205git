@@ -41,10 +41,15 @@ function Update () {
 
 function shoot(){	// Shooting
 	if(Mathf.FloorToInt(Random.value * 10000.0) % 200 == 0){
-		Instantiate(
+	/*	Instantiate(
 			shot,
 			this.transform.position + Vector2(0,-0.5), 
 			Quaternion.identity
+		);	*/
+		Instantiate(
+			shot,
+			this.transform.position + Vector2(0,-0.5), 
+			Quaternion.Euler(0.0,0.0,0.0)
 		);	
 	}
 	/*
