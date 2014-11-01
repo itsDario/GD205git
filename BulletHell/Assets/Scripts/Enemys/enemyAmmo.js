@@ -7,12 +7,13 @@ function Start () {
 }
 
 function Update () {
+	rigidbody2D.velocity = transform.right * speed;
+	
 	//transform.Rotate (Vector3.forward * -90 * Time.deltaTime);
 	//rigidbody2D.velocity.y = -speed;
-	rigidbody2D.velocity = transform.right * speed;
-	Debug.Log(rigidbody2D.velocity);
-	if(gameObject.transform.position.y < -5){
-		Destroy(gameObject);
-	}
+//	Debug.Log(rigidbody2D.velocity);
+//	if(gameObject.transform.position.y < -5){
+//		Destroy(gameObject);
+//	}
 	//renderer.GetComponent(SpriteRenderer).color = Color.yellow;
 }

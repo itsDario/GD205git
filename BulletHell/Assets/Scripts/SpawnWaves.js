@@ -1,17 +1,23 @@
 ﻿#pragma strict
 
 var redEnemy1 : GameObject;
+var circleEnemy : GameObject;
 var spawnValues : Vector3;
 var hazardCount : int;
 var spawnWait : float;
 var startWait : float;
 var waveWait : float;
+var lastSpawnTime: float;
 
 function Start () {
-    SpawnWaves ();
+	triangleEnemySpawn();
 }
 
-function SpawnWaves () {
+function Update(){
+	circleEnemySpawn();
+}
+
+function triangleEnemySpawn(){
     yield WaitForSeconds (startWait);
     while (true)
     {
@@ -25,4 +31,12 @@ function SpawnWaves () {
         }
         yield WaitForSeconds (waveWait);
     }
+}
+
+function circleEnemySpawn(){
+	var circleSpawnPosition : Vector3 = new Vector3 (0,5,0);
+	if(Time.time > lastSpawnTime + 10){
+        Instantiate (circleEnemy, circleSpawnPosition, Quaternion.identity);
+        lastSpawnTime = Time.time;
+	}
 }

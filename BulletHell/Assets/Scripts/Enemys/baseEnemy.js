@@ -8,9 +8,6 @@ var enemyExplosion: GameObject;
 
 function move(){
 	transform.position.y -= moveSpeed * Time.deltaTime;
-	if(transform.position.y <= -5){
-		Destroy(gameObject);
-	}
 }
 
 function blink(){
@@ -20,7 +17,7 @@ function blink(){
 }
 
 function setHealth(newHealth: int){
-	Debug.Log("health set");
+//	Debug.Log("health set");
 	health = newHealth;
 }
 
