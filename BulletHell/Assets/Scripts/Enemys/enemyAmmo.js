@@ -7,7 +7,7 @@ function Start () {
 }
 
 function Update () {
-	rigidbody2D.velocity = transform.right * speed;
+	rigidbody2D.velocity = -transform.up * speed;
 	
 	//transform.Rotate (Vector3.forward * -90 * Time.deltaTime);
 	//rigidbody2D.velocity.y = -speed;
