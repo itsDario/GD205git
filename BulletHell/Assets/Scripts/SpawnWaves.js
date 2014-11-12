@@ -2,6 +2,7 @@
 
 var redEnemy1 : GameObject;
 var circleEnemy : GameObject;
+var boxEnemy : GameObject;
 var spawnValues : Vector3;
 var hazardCount : int;
 var spawnWait : float;
@@ -15,6 +16,7 @@ function Start () {
 
 function Update(){
 	circleEnemySpawn();
+	boxEnemySpawn();
 }
 
 function triangleEnemySpawn(){
@@ -37,6 +39,15 @@ function circleEnemySpawn(){
 	var circleSpawnPosition : Vector3 = new Vector3 (0,5,0);
 	if(Time.time > lastSpawnTime + 10){
         Instantiate (circleEnemy, circleSpawnPosition, Quaternion.identity);
+        lastSpawnTime = Time.time;
+	}
+}
+
+function boxEnemySpawn(){
+	var boxSpawnPosition : Vector3 = new Vector3 (0,5,0);
+	boxSpawnPosition.x = Random.value * 3 - 1.5;
+	if(Time.time > lastSpawnTime + 1){
+        Instantiate (boxEnemy, boxSpawnPosition, Quaternion.identity);
         lastSpawnTime = Time.time;
 	}
 }
