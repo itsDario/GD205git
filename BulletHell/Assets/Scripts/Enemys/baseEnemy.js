@@ -35,7 +35,7 @@ function setBlinkSpeed(newBlinkSpeed:float){
 }
 
 function OnTriggerEnter2D (other: Collider2D){
-	if(other.gameObject.tag == "Shot"){
+	if(other.gameObject.tag == "Shot" || other.gameObject.tag == "player"){
 		//Script_gameManager.score += 10;
 		blink();
 		health--;

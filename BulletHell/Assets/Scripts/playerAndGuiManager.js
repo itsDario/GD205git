@@ -13,7 +13,7 @@ function Start () {
 function Update () {
 //Debug.Log(score);
 
-if(lives < 0){
+if(lives <= 0){
 	//Death
 	Application.LoadLevel(2);
 }

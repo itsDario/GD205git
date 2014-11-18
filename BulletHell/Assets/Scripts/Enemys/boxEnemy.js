@@ -22,7 +22,11 @@ public class boxEnemy extends baseEnemy
 		move();
 		lookAtPlayer();
 		if(target == null){
+			try{
 			target = GameObject.FindWithTag("Player").transform;
+			}catch(NullReferenceException){
+//				Debug.Log("noPlayer");
+			}
 		}
 	}
 

@@ -3,6 +3,7 @@
 var redEnemy1 : GameObject;
 var circleEnemy : GameObject;
 var boxEnemy : GameObject;
+var starEnemy : GameObject;
 var spawnValues : Vector3;
 var hazardCount : int;
 var spawnWait : float;
@@ -20,6 +21,7 @@ function Start () {
 function Update(){
 	circleEnemySpawn();
 	boxEnemySpawn();
+	starEnemySpawn();
 }
 
 function triangleEnemySpawn(){
@@ -53,4 +55,8 @@ function boxEnemySpawn(){
         Instantiate (boxEnemy, boxSpawnPosition, Quaternion.identity);
         lastBoxSpawnTime = Time.time;
 	}
+}
+
+function starEnemySpawn(){
+	
 }
