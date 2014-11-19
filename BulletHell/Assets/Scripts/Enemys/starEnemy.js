@@ -9,7 +9,7 @@ var followSpeed: float = 3;
 public class starEnemy extends baseEnemy{
 	function Start(){
 		setHealth(1);
-		setColor(Color.gray);
+		setColor(Color(1,0.3,0.6,1));
 //		setMoveSpeed(0);
 		setBlinkSpeed(0.05);
 			
