@@ -16,6 +16,10 @@ function Update () {
 function waitThenDestroy(){
 	yield WaitForSeconds(2);
 	
+	if(playerAndGuiManager.lives <= 0){//Death
+		Application.LoadLevel(2);
+	}else{
     Instantiate (player, spawnPosition, Quaternion.identity);
 	Destroy(gameObject);
+	}
 }

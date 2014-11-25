@@ -2,21 +2,22 @@
 
 public static var lives: int;
 public static var score: int;
+var font : Font;
+
+var myStyle: GUIStyle  = new GUIStyle();
 
 var lifeIcon: Texture2D;
 
 function Start () {
 	lives = 3;
 	score = 0;
+	
+ 	myStyle.font = font;
+ 	myStyle.normal.textColor = Color.white;
 }
 
 function Update () {
 //Debug.Log(score);
-
-if(lives <= 0){
-	//Death
-	Application.LoadLevel(2);
-}
 
 }
 
@@ -28,7 +29,7 @@ if(lives <= 0){
  
  	for(var i = 0; i < lives;i++){
  		GUILayout.Label(lifeIcon); //assign your heart image to this texture
- 		}
+ 	}
  		
  	
  	
@@ -36,5 +37,5 @@ if(lives <= 0){
  	GUILayout.EndHorizontal();
  	GUILayout.EndArea();
  	
- 	GUI.Box (Rect (Screen.width - 140,Screen.height - 50,140, 50), "Score " + score);
+ 	GUI.Box (Rect (Screen.width / 2,Screen.height - 30,140, 50), "Score " + score , myStyle);
  }

@@ -23,9 +23,10 @@ public class starEnemy extends baseEnemy{
 			try{
 			target = GameObject.FindWithTag("Player").transform;
 			}catch(NullReferenceException){
-				Debug.Log("noPlayer");
+//				Debug.Log("noPlayer");
 			}
 		}
+//		 Random.value - 5;
 	}
 
 	function lookAndFollow(){
@@ -33,7 +34,7 @@ public class starEnemy extends baseEnemy{
 		if(target != null){
 			var dir = target.transform.position - transform.position;
 			var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-			transform.rotation = Quaternion.AngleAxis(angle + 90, Vector3.forward);
+			transform.rotation = Quaternion.AngleAxis(angle + (Random.value * 45 + 67.5), Vector3.forward);
 			transform.position += -transform.up*followSpeed*Time.deltaTime;
 		}
 	}

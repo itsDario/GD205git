@@ -9,8 +9,9 @@ var hazardCount : int;
 var spawnWait : float;
 var startWait : float;
 var waveWait : float;
-var lastCircleSpawnTime: float;
-var lastBoxSpawnTime: float;
+private var lastCircleSpawnTime: float;
+private var lastBoxSpawnTime: float;
+private var lastStarSpawnTime: float;
 
 function Start () {
 	triangleEnemySpawn();
@@ -42,7 +43,7 @@ function triangleEnemySpawn(){
 
 function circleEnemySpawn(){
 	var circleSpawnPosition : Vector3 = new Vector3 (0,5,0);
-	if(Time.time > lastCircleSpawnTime + 10){
+	if(Time.time > lastCircleSpawnTime + 15){
         Instantiate (circleEnemy, circleSpawnPosition, Quaternion.identity);
         lastCircleSpawnTime = Time.time;
 	}
@@ -50,13 +51,20 @@ function circleEnemySpawn(){
 
 function boxEnemySpawn(){
 	var boxSpawnPosition : Vector3 = new Vector3 (0,5,0);
-	boxSpawnPosition.x = Random.value * 3 - 1.5;
-	if(Time.time > lastBoxSpawnTime + 21){
+	boxSpawnPosition.x = Random.value * 5 / 2;
+	if(Time.time > lastBoxSpawnTime + 30){
         Instantiate (boxEnemy, boxSpawnPosition, Quaternion.identity);
         lastBoxSpawnTime = Time.time;
 	}
 }
 
 function starEnemySpawn(){
-	
+	var starSpawn = spawnValues;
+	if(Time.time > lastStarSpawnTime + 45){
+		for(var i = 0;i <= 10;i++){
+		starSpawn.x = Random.value * 8 / 2;
+		    Instantiate (starEnemy, starSpawn, Quaternion.identity);
+		}
+        lastStarSpawnTime = Time.time;
+	}
 }
