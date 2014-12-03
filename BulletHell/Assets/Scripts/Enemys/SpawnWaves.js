@@ -17,6 +17,13 @@ function Start () {
 	triangleEnemySpawn();
 	lastCircleSpawnTime = Time.time;
 	lastBoxSpawnTime = Time.time;
+	
+	for(var i = 0;i <= 10;i++){
+		starSpawn.x = Random.value * 8 / 2;
+		    Instantiate (starEnemy, starSpawn, Quaternion.identity);
+		}
+		
+		
 }
 
 function Update(){
