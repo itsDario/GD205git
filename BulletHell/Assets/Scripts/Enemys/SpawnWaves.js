@@ -5,6 +5,7 @@ var circleEnemy : GameObject;
 var boxEnemy : GameObject;
 var starEnemy : GameObject;
 var spawnValues : Vector3;
+var starSpawn: Vector3;
 var hazardCount : int;
 var spawnWait : float;
 var startWait : float;
@@ -18,11 +19,11 @@ function Start () {
 	lastCircleSpawnTime = Time.time;
 	lastBoxSpawnTime = Time.time;
 	
-	for(var i = 0;i <= 10;i++){
+/*	for(var i = 0;i <= 10;i++){
 		starSpawn.x = Random.value * 8 / 2;
 		    Instantiate (starEnemy, starSpawn, Quaternion.identity);
 		}
-		
+*/		
 		
 }
 
@@ -68,7 +69,7 @@ function boxEnemySpawn(){
 function starEnemySpawn(){
 	var starSpawn = spawnValues;
 	if(Time.time > lastStarSpawnTime + 45){
-		for(var i = 0;i <= 10;i++){
+		for(var i = 0;i <= 4;i++){
 		starSpawn.x = Random.value * 8 / 2;
 		    Instantiate (starEnemy, starSpawn, Quaternion.identity);
 		}

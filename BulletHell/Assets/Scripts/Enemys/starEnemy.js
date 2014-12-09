@@ -38,4 +38,8 @@ public class starEnemy extends baseEnemy{
 			transform.position += -transform.up*followSpeed*Time.deltaTime;
 		}
 	}
+	
+	function avoidOthers(){
+		
+	}
 }
